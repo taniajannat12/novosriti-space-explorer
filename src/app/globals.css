@@ -1,0 +1,1897 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: #edf7ff;
+  color: #17324d;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible {
+  outline: 4px solid #ffcf70;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.space-story {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff 0 4%, transparent 22%),
+    linear-gradient(135deg, #dff4ff, #fdf8e9 55%, #e7f8ee);
+}
+
+.space-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
+    radial-gradient(circle, rgba(91,142,190,.25) 1px, transparent 2px);
+  background-size: 90px 90px, 130px 130px;
+  opacity: .55;
+}
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .4;
+}
+
+.stars-one {
+  background-image:
+    radial-gradient(circle at 10% 20%, white 2px, transparent 3px),
+    radial-gradient(circle at 40% 10%, white 2px, transparent 3px),
+    radial-gradient(circle at 70% 25%, white 2px, transparent 3px),
+    radial-gradient(circle at 90% 12%, white 2px, transparent 3px);
+}
+
+.stars-two {
+  animation: floatingStars 8s ease-in-out infinite;
+  background-image:
+    radial-gradient(circle at 25% 70%, #fff 2px, transparent 3px),
+    radial-gradient(circle at 60% 80%, #fff 2px, transparent 3px),
+    radial-gradient(circle at 85% 65%, #fff 2px, transparent 3px);
+}
+
+@keyframes floatingStars {
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+  height: 76px;
+  width: 100%;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(67,119,160,.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #27699c;
+}
+
+.brand-star {
+  font-size: 25px;
+  color: #f5b642;
+}
+
+.mission-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #6e8da6;
+  letter-spacing: 1px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.progress span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #dcecf6;
+  opacity: .5;
+  transition: .3s;
+}
+
+.progress span.active {
+  opacity: 1;
+  background: #fff4cf;
+  box-shadow: 0 5px 18px rgba(231,178,66,.2);
+  transform: scale(1.08);
+}
+
+.progress i {
+  width: 35px;
+  height: 3px;
+  background: #cbdfea;
+  border-radius: 20px;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.chapter {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #5b91b8;
+  margin-bottom: 10px;
+}
+
+.main-button {
+  border: 0;
+  border-radius: 18px;
+  padding: 16px 25px;
+  background: linear-gradient(135deg, #ffcb61, #ff9d69);
+  color: #55370e;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow:
+    0 10px 25px rgba(232,157,71,.25),
+    inset 0 -3px 0 rgba(124,76,13,.12);
+  transition: .25s;
+}
+
+.main-button:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.main-button:active {
+  transform: translateY(1px);
+}
+
+.speech {
+  display: inline-block;
+  background: white;
+  border-radius: 22px;
+  padding: 15px 19px;
+  font-weight: 800;
+  line-height: 1.45;
+  box-shadow: 0 12px 35px rgba(47,93,124,.13);
+  position: relative;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 30px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  transform: rotate(45deg);
+}
+
+.speech.large {
+  max-width: 390px;
+  font-size: 18px;
+}
+
+.speech.big {
+  font-size: 22px;
+  max-width: 480px;
+}
+
+/* =========================================================
+   MIRA
+========================================================= */
+
+.mira {
+  position: relative;
+  width: 150px;
+  height: 280px;
+  margin: auto;
+  animation: miraFloat 3s ease-in-out infinite;
+}
+
+.mira.medium {
+  transform: scale(.9);
+  transform-origin: bottom center;
+}
+
+.mira.small {
+  transform: scale(.7);
+  transform-origin: bottom center;
+}
+
+.mira.large {
+  transform: scale(1.15);
+  transform-origin: bottom center;
+}
+
+@keyframes miraFloat {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.mira-head {
+  position: absolute;
+  width: 74px;
+  height: 78px;
+  left: 38px;
+  top: 47px;
+  background: #ffd6b5;
+  border-radius: 45% 45% 48% 48%;
+  z-index: 4;
+}
+
+.mira-hair {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  left: 34px;
+  top: 42px;
+  background: #4d2f2d;
+  border-radius: 48% 48% 42% 42%;
+  z-index: 2;
+}
+
+.mira-hair::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 62px;
+  right: -8px;
+  top: 40px;
+  background: #4d2f2d;
+  border-radius: 50%;
+}
+
+.mira-helmet {
+  position: absolute;
+  width: 106px;
+  height: 112px;
+  left: 22px;
+  top: 22px;
+  border: 8px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(166,225,249,.35);
+  z-index: 5;
+  box-shadow: 0 8px 25px rgba(53,107,141,.18);
+}
+
+.helmet-glass {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px solid rgba(80,160,205,.35);
+}
+
+.eye {
+  position: absolute;
+  width: 8px;
+  height: 11px;
+  background: #34282a;
+  border-radius: 50%;
+  top: 33px;
+}
+
+.eye.left {
+  left: 20px;
+}
+
+.eye.right {
+  right: 20px;
+}
+
+.smile {
+  position: absolute;
+  width: 23px;
+  height: 11px;
+  border-bottom: 3px solid #c85e63;
+  border-radius: 50%;
+  left: 26px;
+  top: 50px;
+}
+
+.mira-body {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  left: 35px;
+  top: 125px;
+  background: #ffffff;
+  border-radius: 30px 30px 24px 24px;
+  z-index: 3;
+  box-shadow: inset 0 -7px 0 #dbeaf1;
+}
+
+.mira-badge {
+  position: absolute;
+  top: 23px;
+  left: 27px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffd267;
+  color: #49647a;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.mira-arm {
+  position: absolute;
+  width: 23px;
+  height: 85px;
+  background: #fff;
+  border-radius: 30px;
+  top: 132px;
+  z-index: 2;
+}
+
+.left-arm {
+  left: 21px;
+  transform: rotate(22deg);
+}
+
+.right-arm {
+  right: 20px;
+  transform: rotate(-25deg);
+}
+
+.mira-leg {
+  position: absolute;
+  width: 28px;
+  height: 70px;
+  background: #fff;
+  border-radius: 20px;
+  top: 214px;
+  z-index: 1;
+}
+
+.left-leg {
+  left: 40px;
+}
+
+.right-leg {
+  right: 40px;
+}
+
+.mira-leg::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  width: 40px;
+  height: 16px;
+  border-radius: 20px;
+  background: #aecad9;
+}
+
+.left-leg::after {
+  left: -8px;
+}
+
+.right-leg::after {
+  right: -8px;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-screen {
+  min-height: calc(100vh - 76px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 60px 7vw;
+}
+
+.intro-content {
+  text-align: center;
+  max-width: 650px;
+  z-index: 5;
+}
+
+.small-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 50px;
+  background: white;
+  color: #628aa5;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.intro-content h1 {
+  font-family: "Baloo 2";
+  font-size: clamp(65px, 10vw, 110px);
+  line-height: .8;
+  margin: 0;
+  color: #2775a8;
+}
+
+.intro-content h1 span {
+  color: #f2a84c;
+}
+
+.intro-content h2 {
+  font-family: "Baloo 2";
+  font-size: 29px;
+  margin: 15px 0 10px;
+}
+
+.intro-content p {
+  max-width: 560px;
+  margin: 0 auto 25px;
+  color: #668399;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.voice-note {
+  margin-top: 16px;
+  color: #7894a8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.intro-mira {
+  position: absolute;
+  right: 7vw;
+  bottom: 35px;
+  z-index: 6;
+}
+
+.intro-mira .speech {
+  position: absolute;
+  top: 0;
+  right: -170px;
+  width: 180px;
+}
+
+.intro-orbit {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border: 2px dashed rgba(78,139,175,.2);
+  border-radius: 50%;
+  left: -260px;
+  top: 40px;
+}
+
+.intro-earth {
+  font-size: 140px;
+  position: absolute;
+  right: 25px;
+  top: 220px;
+  animation: spinEarth 18s linear infinite;
+}
+
+.orbit-moon {
+  position: absolute;
+  font-size: 50px;
+  right: 75px;
+  top: 30px;
+}
+
+@keyframes spinEarth {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   EARTH
+========================================================= */
+
+.earth-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 9vw;
+  position: relative;
+}
+
+.planet {
+  text-align: center;
+}
+
+.earth-big {
+  font-size: clamp(180px, 28vw, 350px);
+  animation: earthPulse 4s ease-in-out infinite;
+}
+
+@keyframes earthPulse {
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.story-card {
+  max-width: 600px;
+  background: rgba(255,255,255,.83);
+  padding: 45px;
+  border-radius: 38px;
+  box-shadow: 0 25px 60px rgba(50,98,127,.13);
+}
+
+.story-card h1,
+.lesson-card h2,
+.quiz-card h2,
+.result-card h1,
+.final-card h1 {
+  font-family: "Baloo 2";
+}
+
+.story-card h1 {
+  font-size: 45px;
+  margin: 0 0 12px;
+}
+
+.story-card p {
+  color: #668399;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.mira-says {
+  padding: 18px;
+  background: #eef9ff;
+  border-radius: 20px;
+  color: #416e8d !important;
+  font-weight: 700;
+}
+
+.floating-mira {
+  position: absolute;
+  left: 5vw;
+  bottom: 20px;
+}
+
+.floating-mira .speech {
+  position: absolute;
+  top: -15px;
+  left: 100px;
+}
+
+/* =========================================================
+   LESSON
+========================================================= */
+
+.lesson-screen {
+  min-height: calc(100vh - 76px);
+  padding: 50px 7vw;
+}
+
+.lesson-top {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.lesson-top h1 {
+  font-family: "Baloo 2";
+  font-size: 42px;
+  margin: 0;
+}
+
+.lesson-top p {
+  color: #7690a3;
+}
+
+.lesson-layout {
+  max-width: 1050px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.lesson-mira {
+  text-align: center;
+}
+
+.lesson-mira .speech {
+  margin-top: 15px;
+}
+
+.lesson-card {
+  background: white;
+  padding: 35px;
+  border-radius: 35px;
+  box-shadow: 0 20px 60px rgba(50,98,127,.12);
+  position: relative;
+}
+
+.lesson-number {
+  position: absolute;
+  right: 28px;
+  top: 25px;
+  font-size: 25px;
+  font-weight: 900;
+  color: #f0ae4d;
+}
+
+.lesson-number span {
+  font-size: 13px;
+  color: #9cb0bd;
+}
+
+.lesson-icon {
+  font-size: 60px;
+}
+
+.lesson-card h2 {
+  font-size: 35px;
+  margin: 5px 0;
+}
+
+.lesson-card p {
+  color: #668399;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.lesson-dots {
+  display: flex;
+  gap: 8px;
+  margin: 25px 0;
+}
+
+.lesson-dots span {
+  width: 30px;
+  height: 7px;
+  border-radius: 20px;
+  background: #dceaf1;
+}
+
+.lesson-dots span.selected {
+  background: #f5bd5c;
+  width: 50px;
+}
+
+/* =========================================================
+   LAUNCH
+========================================================= */
+
+.launch-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 50px;
+}
+
+.launch-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.launch-earth {
+  position: absolute;
+  left: 6vw;
+  bottom: 4vh;
+  font-size: 140px;
+}
+
+.launch-text {
+  flex: 1;
+  text-align: center;
+}
+
+.launch-text h1 {
+  font-family: "Baloo 2";
+  font-size: 50px;
+  margin: 5px 0 15px;
+}
+
+.launch-text p {
+  color: #7690a3;
+  margin-bottom: 12px;
+}
+
+.launch-text .speech {
+  display: block;
+  margin: 0 auto 25px;
+}
+
+.rocket-launch {
+  width: 180px;
+  position: relative;
+}
+
+.rocket {
+  width: 95px;
+  height: 210px;
+  background: linear-gradient(#fff, #e4f2f8);
+  border-radius: 60px 60px 30px 30px;
+  margin: auto;
+  position: relative;
+  border: 4px solid #8ab4c8;
+  animation: rocketShake .25s infinite alternate;
+}
+
+.rocket::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #ffd27a;
+  border-radius: 50%;
+  top: -28px;
+  left: 4px;
+  z-index: -1;
+}
+
+.rocket-window {
+  width: 32px;
+  height: 32px;
+  background: #8dd3f0;
+  border: 5px solid #568eaa;
+  border-radius: 50%;
+  position: absolute;
+  top: 55px;
+  left: 28px;
+}
+
+.rocket-fin {
+  position: absolute;
+  width: 35px;
+  height: 70px;
+  bottom: 20px;
+  background: #f3a75b;
+}
+
+.rocket-fin.left {
+  left: -25px;
+  border-radius: 25px 0 0 25px;
+}
+
+.rocket-fin.right {
+  right: -25px;
+  border-radius: 0 25px 25px 0;
+}
+
+.rocket-fire {
+  position: absolute;
+  bottom: -65px;
+  left: 22px;
+  font-size: 65px;
+}
+
+@keyframes rocketShake {
+  from {
+    transform: translateX(-3px);
+  }
+
+  to {
+    transform: translateX(3px);
+  }
+}
+
+/* =========================================================
+   FLYING
+========================================================= */
+
+.flying-screen {
+  min-height: calc(100vh - 76px);
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 50%, #ffffff 0 2px, transparent 3px),
+    linear-gradient(135deg, #d8f1ff, #edf5fb);
+}
+
+.travel-earth {
+  position: absolute;
+  left: 5vw;
+  top: 40%;
+  font-size: 130px;
+}
+
+.travel-moon {
+  position: absolute;
+  right: 8vw;
+  top: 28%;
+  font-size: 130px;
+}
+
+.travel-line {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+  right: 18%;
+  border-top: 3px dashed rgba(83,138,171,.3);
+}
+
+.flying-rocket {
+  position: absolute;
+  font-size: 80px;
+  top: 44%;
+  left: 45%;
+  animation: flyMoon 4s linear forwards;
+}
+
+@keyframes flyMoon {
+  from {
+    left: 18%;
+    transform: rotate(0);
+  }
+
+  to {
+    left: 78%;
+    transform: rotate(5deg);
+  }
+}
+
+.travel-message {
+  position: absolute;
+  bottom: 8%;
+  width: 100%;
+  text-align: center;
+}
+
+.travel-message p {
+  color: #6d879a;
+  font-weight: 800;
+}
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.moon-screen {
+  min-height: calc(100vh - 76px);
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.9), transparent 20%),
+    linear-gradient(#eaf7fc, #f5f0e6);
+  overflow: hidden;
+}
+
+.moon-large {
+  position: absolute;
+  right: 8vw;
+  top: 8vh;
+  font-size: clamp(180px, 28vw, 350px);
+  filter: drop-shadow(0 20px 30px rgba(90,102,106,.15));
+  animation: moonFloat 5s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.moon-content {
+  position: absolute;
+  left: 10vw;
+  top: 25%;
+  max-width: 570px;
+}
+
+.moon-content h1 {
+  font-family: "Baloo 2";
+  font-size: 52px;
+  margin: 0 0 18px;
+}
+
+.moon-content p {
+  color: #758a9a;
+  margin: 25px 0;
+  font-weight: 700;
+}
+
+.moon-ground {
+  position: absolute;
+  bottom: -80px;
+  left: -5%;
+  width: 110%;
+  height: 230px;
+  background: #d8d0bd;
+  border-radius: 50% 50% 0 0;
+}
+
+.crater {
+  position: absolute;
+  border-radius: 50%;
+  background: #c4bba8;
+  box-shadow: inset 0 8px 12px rgba(102,93,75,.15);
+}
+
+.crater-one {
+  width: 130px;
+  height: 50px;
+  left: 20%;
+  top: 60px;
+}
+
+.crater-two {
+  width: 90px;
+  height: 35px;
+  right: 25%;
+  top: 80px;
+}
+
+.crater-three {
+  width: 180px;
+  height: 55px;
+  left: 52%;
+  top: 120px;
+}
+
+/* =========================================================
+   EXPLORE
+========================================================= */
+
+.explore-screen {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  padding: 35px 5vw 25px;
+}
+
+.explore-header {
+  text-align: center;
+}
+
+.explore-header h1 {
+  font-family: "Baloo 2";
+  font-size: 42px;
+  margin: 0;
+}
+
+.explore-header p {
+  color: #71899b;
+  margin: 4px;
+}
+
+.explore-world {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.moon-surface {
+  width: min(850px, 90vw);
+  height: 390px;
+  background:
+    radial-gradient(circle at 20% 40%, #c0b7a3 0 30px, transparent 31px),
+    radial-gradient(circle at 80% 60%, #c0b7a3 0 45px, transparent 46px),
+    #ddd4c2;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 -20px 35px rgba(93,82,64,.1);
+}
+
+.large-crater {
+  position: absolute;
+  width: 240px;
+  height: 80px;
+  left: 30%;
+  bottom: 35px;
+  border-radius: 50%;
+  background: #c4baa5;
+}
+
+.surveyor {
+  position: absolute;
+  left: 42%;
+  top: 80px;
+  width: 160px;
+  height: 210px;
+}
+
+.surveyor-body {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  left: 30px;
+  top: 25px;
+  border-radius: 12px;
+  background: #d7e2e4;
+  border: 5px solid #718b92;
+}
+
+.surveyor-camera {
+  position: absolute;
+  font-size: 30px;
+  top: 27px;
+  left: 32px;
+}
+
+.surveyor-panel {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  background: #4f7180;
+  border: 5px solid #75939e;
+  top: 80px;
+  right: -30px;
+  display: grid;
+  place-items: center;
+}
+
+.surveyor-leg {
+  position: absolute;
+  width: 12px;
+  height: 105px;
+  background: #7d9197;
+  top: 105px;
+  transform-origin: top;
+}
+
+.surveyor-leg.one {
+  left: 40px;
+  transform: rotate(18deg);
+}
+
+.surveyor-leg.two {
+  left: 75px;
+}
+
+.surveyor-leg.three {
+  right: 35px;
+  transform: rotate(-18deg);
+}
+
+.clue-point {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: #ffd263;
+  color: #61430d;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgba(92,74,30,.2);
+  animation: cluePulse 1.4s infinite;
+}
+
+.clue-point.found {
+  background: #83d6a5;
+  color: white;
+  animation: none;
+}
+
+.clue-one {
+  left: 25%;
+  top: 30%;
+}
+
+.clue-two {
+  left: 60%;
+  top: 25%;
+}
+
+.clue-three {
+  left: 30%;
+  bottom: 25%;
+}
+
+.clue-four {
+  right: 22%;
+  bottom: 22%;
+}
+
+@keyframes cluePulse {
+  50% {
+    transform: scale(1.13);
+  }
+}
+
+.explore-bottom {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  max-width: 1050px;
+  width: 100%;
+  margin: auto;
+}
+
+.clue-counter {
+  font-weight: 900;
+  color: #66869b;
+}
+
+.current-clue {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: white;
+  border-radius: 18px;
+  padding: 12px 17px;
+}
+
+.current-clue > span {
+  font-size: 28px;
+}
+
+.current-clue strong,
+.current-clue small {
+  display: block;
+}
+
+.current-clue small {
+  color: #7890a1;
+  margin-top: 3px;
+}
+
+/* =========================================================
+   RECAP
+========================================================= */
+
+.recap-screen {
+  min-height: calc(100vh - 76px);
+  padding: 45px 7vw;
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.recap-mira {
+  text-align: center;
+}
+
+.recap-mira .speech {
+  margin-top: 10px;
+}
+
+.recap-card {
+  background: white;
+  padding: 35px;
+  border-radius: 35px;
+  box-shadow: 0 20px 60px rgba(50,98,127,.12);
+}
+
+.recap-card h1 {
+  font-family: "Baloo 2";
+  font-size: 42px;
+  margin: 0 0 20px;
+}
+
+.recap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.recap-item {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  background: #f3f9fc;
+  border-radius: 18px;
+}
+
+.recap-item > span {
+  font-size: 28px;
+}
+
+.recap-item strong,
+.recap-item small {
+  display: block;
+}
+
+.recap-item small {
+  color: #748d9d;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-screen {
+  min-height: calc(100vh - 76px);
+  padding: 35px 7vw;
+}
+
+.quiz-header {
+  text-align: center;
+}
+
+.quiz-header h1 {
+  font-family: "Baloo 2";
+  font-size: 40px;
+  margin: 0;
+}
+
+.quiz-progress {
+  color: #7b93a5;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.quiz-layout {
+  max-width: 1050px;
+  margin: 25px auto;
+  display: grid;
+  grid-template-columns: .65fr 1.35fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.quiz-mira {
+  text-align: center;
+}
+
+.quiz-mira .speech {
+  margin-top: 10px;
+}
+
+.quiz-card {
+  background: white;
+  border-radius: 35px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(50,98,127,.12);
+  position: relative;
+}
+
+.question-number {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0c7;
+  color: #8b641f;
+  font-weight: 900;
+}
+
+.quiz-card h2 {
+  font-size: 29px;
+  margin: 18px 0;
+  line-height: 1.2;
+}
+
+.answers {
+  display: grid;
+  gap: 12px;
+}
+
+.answer {
+  border: 2px solid #e2edf2;
+  background: #f9fcfd;
+  border-radius: 17px;
+  padding: 14px 17px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+  color: #496679;
+  transition: .2s;
+}
+
+.answer:hover {
+  transform: translateX(4px);
+  border-color: #9fc6d9;
+}
+
+.answer > span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e5f3f8;
+  color: #4e7d95;
+}
+
+.answer.correct {
+  background: #e8f8ee;
+  border-color: #83d7a5;
+}
+
+.answer.wrong {
+  background: #fff0ef;
+  border-color: #eeaaa4;
+}
+
+.quiz-score {
+  margin-top: 18px;
+  color: #6c899d;
+  font-weight: 900;
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: center;
+  padding: 45px 10vw;
+  gap: 60px;
+  position: relative;
+}
+
+.confetti {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 35px;
+  animation: confettiFloat 2s ease-in-out infinite;
+}
+
+@keyframes confettiFloat {
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+.result-mira {
+  text-align: center;
+}
+
+.result-card {
+  background: white;
+  border-radius: 40px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 25px 65px rgba(50,98,127,.14);
+}
+
+.result-card h1 {
+  font-size: 45px;
+  margin: 0;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #fff3cf;
+  margin: 25px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-circle strong {
+  font-family: "Baloo 2";
+  font-size: 65px;
+  color: #e29a3f;
+}
+
+.score-circle span {
+  font-size: 17px;
+  font-weight: 900;
+  color: #8c795d;
+  margin-top: 30px;
+}
+
+.result-card p {
+  color: #7890a1;
+  font-weight: 700;
+}
+
+.badge-preview {
+  width: fit-content;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 20px;
+  background: #eef8fb;
+  border-radius: 18px;
+  font-weight: 900;
+  color: #52778d;
+}
+
+.badge-preview small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   RETURN
+========================================================= */
+
+.return-screen {
+  min-height: calc(100vh - 76px);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#dff4ff, #edf7fb);
+}
+
+.return-moon {
+  position: absolute;
+  left: 5vw;
+  top: 25%;
+  font-size: 120px;
+}
+
+.return-earth {
+  position: absolute;
+  right: 5vw;
+  top: 20%;
+  font-size: 190px;
+  animation: earthHome 5s forwards;
+}
+
+.return-rocket {
+  position: absolute;
+  font-size: 75px;
+  left: 15%;
+  top: 48%;
+  animation: returnRocket 5s forwards;
+}
+
+@keyframes returnRocket {
+  from {
+    left: 15%;
+    top: 45%;
+  }
+
+  to {
+    left: 76%;
+    top: 30%;
+  }
+}
+
+@keyframes earthHome {
+  from {
+    transform: scale(.7);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.return-message {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+.return-message p {
+  color: #718b9e;
+  font-weight: 800;
+}
+
+/* =========================================================
+   HOMECOMING
+========================================================= */
+
+.homecoming-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.home-earth {
+  font-size: 270px;
+  animation: homeEarthPulse 3s ease-in-out infinite;
+}
+
+@keyframes homeEarthPulse {
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+.homecoming-mira {
+  position: absolute;
+  right: 15%;
+  bottom: 5%;
+}
+
+.homecoming-mira .speech {
+  position: absolute;
+  top: -50px;
+  right: 100px;
+  width: 230px;
+}
+
+.home-button {
+  position: absolute;
+  bottom: 35px;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: center;
+  padding: 40px 9vw;
+  gap: 70px;
+  position: relative;
+}
+
+.final-stars {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 25px;
+}
+
+.final-earth {
+  font-size: 260px;
+  text-align: center;
+  animation: finalEarth 5s ease-in-out infinite;
+}
+
+@keyframes finalEarth {
+  50% {
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+.final-mira {
+  position: absolute;
+  left: 7%;
+  bottom: 8%;
+}
+
+.final-card {
+  background: rgba(255,255,255,.9);
+  padding: 40px;
+  border-radius: 38px;
+  box-shadow: 0 25px 70px rgba(50,98,127,.14);
+  text-align: center;
+}
+
+.final-card h1 {
+  font-size: 45px;
+  line-height: 1;
+}
+
+.final-card h1 span {
+  display: block;
+  color: #e99d48;
+}
+
+.final-card p {
+  color: #71899a;
+  line-height: 1.7;
+  max-width: 550px;
+  margin: auto;
+}
+
+.final-message {
+  background: #edf8fc;
+  padding: 18px;
+  border-radius: 20px;
+  margin: 20px 0;
+  color: #51738a;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.explorer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff3ce;
+  padding: 13px 20px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.badge-star {
+  font-size: 35px;
+}
+
+.explorer-badge strong,
+.explorer-badge span {
+  display: block;
+}
+
+.explorer-badge strong {
+  color: #bd842e;
+  letter-spacing: 2px;
+}
+
+.explorer-badge span {
+  font-size: 10px;
+  font-weight: 900;
+  color: #907952;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   VOICE
+========================================================= */
+
+.voice-status {
+  position: fixed;
+  bottom: 12px;
+  left: 15px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.7);
+  color: #7590a2;
+  font-size: 11px;
+  z-index: 100;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .mission-label {
+    display: none;
+  }
+
+  .intro-mira {
+    right: 2vw;
+    transform: scale(.75);
+  }
+
+  .earth-screen,
+  .recap-screen,
+  .result-screen,
+  .final-screen {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .earth-screen {
+    padding-top: 25px;
+  }
+
+  .earth-big {
+    font-size: 180px;
+  }
+
+  .story-card {
+    margin: auto;
+  }
+
+  .floating-mira {
+    display: none;
+  }
+
+  .lesson-layout,
+  .quiz-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .lesson-mira,
+  .quiz-mira {
+    display: none;
+  }
+
+  .launch-content {
+    flex-direction: column;
+  }
+
+  .launch-earth {
+    display: none;
+  }
+
+  .explore-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .current-clue {
+    justify-content: center;
+  }
+
+  .recap-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .final-mira {
+    display: none;
+  }
+
+  .final-earth {
+    font-size: 170px;
+  }
+
+  .homecoming-mira {
+    right: 3%;
+    transform: scale(.7);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .topbar {
+    padding: 0 15px;
+    height: 65px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .progress {
+    gap: 3px;
+  }
+
+  .progress i {
+    width: 15px;
+  }
+
+  .progress span {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .intro-screen {
+    padding: 30px 20px;
+  }
+
+  .intro-content h1 {
+    font-size: 70px;
+  }
+
+  .intro-content h2 {
+    font-size: 24px;
+  }
+
+  .intro-content p {
+    font-size: 15px;
+  }
+
+  .intro-mira {
+    display: none;
+  }
+
+  .story-card,
+  .lesson-card,
+  .quiz-card,
+  .result-card,
+  .final-card,
+  .recap-card {
+    padding: 25px;
+    border-radius: 25px;
+  }
+
+  .story-card h1,
+  .lesson-card h2,
+  .result-card h1,
+  .final-card h1 {
+    font-size: 34px;
+  }
+
+  .moon-content {
+    left: 25px;
+    right: 25px;
+    top: 20%;
+  }
+
+  .moon-content h1 {
+    font-size: 38px;
+  }
+
+  .moon-large {
+    opacity: .3;
+  }
+
+  .moon-surface {
+    height: 320px;
+  }
+
+  .surveyor {
+    left: 35%;
+    transform: scale(.8);
+  }
+
+  .clue-point {
+    width: 38px;
+    height: 38px;
+  }
+
+  .explore-header h1 {
+    font-size: 34px;
+  }
+
+  .quiz-card h2 {
+    font-size: 23px;
+  }
+
+  .return-earth {
+    font-size: 120px;
+  }
+
+  .return-moon {
+    font-size: 80px;
+  }
+
+  .return-rocket {
+    font-size: 55px;
+  }
+
+  .home-earth {
+    font-size: 170px;
+  }
+
+  .final-stars {
+    letter-spacing: 5px;
+  }
+
+  .final-card p {
+    font-size: 14px;
+  }
+
+  .main-button {
+    width: 100%;
+  }
+}
