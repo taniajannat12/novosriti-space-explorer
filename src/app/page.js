@@ -93,7 +93,7 @@ export default function Home() {
 
   const voicesRef = useRef([]);
 
-  /* ---------------- VOICE ---------------- */
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -178,7 +178,6 @@ export default function Home() {
 
     utterance.lang = "en-US";
 
-    /* child-friendly female style */
     utterance.rate = 0.86;
     utterance.pitch = 1.3;
     utterance.volume = 1;
@@ -186,7 +185,7 @@ export default function Home() {
     window.speechSynthesis.speak(utterance);
   };
 
-  /* ---------------- SOUND ---------------- */
+  
 
   const playSound = (type) => {
     try {
@@ -233,7 +232,7 @@ export default function Home() {
     } catch {}
   };
 
-  /* ---------------- NAVIGATION ---------------- */
+ 
 
   const go = (nextScene, speech) => {
     playSound("click");
@@ -245,7 +244,7 @@ export default function Home() {
     }
   };
 
-  /* ---------------- MISSION START ---------------- */
+
 
   const startMission = () => {
     playSound("success");
@@ -265,7 +264,7 @@ export default function Home() {
     }, 3500);
   };
 
-  /* ---------------- EARTH → LESSON ---------------- */
+
 
   const startLesson = () => {
     playSound("success");
@@ -279,7 +278,7 @@ export default function Home() {
     }, 400);
   };
 
-  /* ---------------- LESSON ---------------- */
+ 
 
   const nextLesson = () => {
     playSound("click");
@@ -299,7 +298,7 @@ export default function Home() {
     }
   };
 
-  /* ---------------- LAUNCH ---------------- */
+ 
 
   const launchRocket = () => {
     playSound("launch");
@@ -321,7 +320,6 @@ export default function Home() {
     }, 5000);
   };
 
-  /* ---------------- MOON ---------------- */
 
   const startExplore = () => {
     playSound("success");
@@ -333,7 +331,7 @@ export default function Home() {
     );
   };
 
-  /* ---------------- CLUES ---------------- */
+  
 
   const collectClue = () => {
     if (foundClues.includes(clueIndex)) return;
@@ -373,7 +371,7 @@ export default function Home() {
     }
   };
 
-  /* ---------------- QUIZ ---------------- */
+ 
 
   const startQuiz = () => {
     playSound("success");
@@ -450,7 +448,7 @@ export default function Home() {
     }, 1500);
   };
 
-  /* ---------------- RETURN TO EARTH ---------------- */
+
 
   const returnToEarth = () => {
     playSound("launch");
@@ -484,7 +482,7 @@ export default function Home() {
     }, 500);
   };
 
-  /* ---------------- RESET ---------------- */
+  
 
   const restart = () => {
     window.speechSynthesis?.cancel();
@@ -501,14 +499,13 @@ export default function Home() {
   return (
     <main className={`space-story scene-${scene}`}>
 
-      {/* BACKGROUND STARS */}
+
 
       <div className="stars stars-one" />
       <div className="stars stars-two" />
       <div className="stars stars-three" />
 
-      {/* HEADER */}
-
+  
       <header className="topbar">
 
         <div className="brand">
@@ -577,10 +574,6 @@ export default function Home() {
         </div>
 
       </header>
-
-      {/* =====================================================
-          INTRO
-      ===================================================== */}
 
       {scene === "intro" && (
         <section className="intro-screen">
@@ -662,9 +655,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          EARTH
-      ===================================================== */}
+     
 
       {scene === "earth" && (
         <section className="story-screen earth-screen">
@@ -738,9 +729,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          LESSON
-      ===================================================== */}
+   
 
       {scene === "lesson" && (
         <section className="lesson-screen">
@@ -854,9 +843,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          LAUNCH
-      ===================================================== */}
+    
 
       {scene === "launch" && (
         <section className="launch-screen">
@@ -939,9 +926,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          FLYING
-      ===================================================== */}
+    
 
       {scene === "flying" && (
         <section className="flying-screen">
@@ -975,9 +960,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          MOON
-      ===================================================== */}
 
       {scene === "moon" && (
         <section className="moon-screen">
@@ -1025,9 +1007,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          EXPLORE
-      ===================================================== */}
 
       {scene === "explore" && (
         <section className="explore-screen">
@@ -1184,10 +1163,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          RECAP
-      ===================================================== */}
-
       {scene === "recap" && (
         <section className="recap-screen">
 
@@ -1277,9 +1252,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          QUIZ
-      ===================================================== */}
 
       {scene === "quiz" && (
         <section className="quiz-screen">
@@ -1425,9 +1397,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          RESULT
-      ===================================================== */}
 
       {scene === "result" && (
         <section className="result-screen">
@@ -1515,9 +1484,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          RETURN
-      ===================================================== */}
 
       {scene === "return" && (
         <section className="return-screen">
@@ -1550,9 +1516,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          HOMECOMING
-      ===================================================== */}
 
       {scene === "homecoming" && (
         <section className="homecoming-screen">
@@ -1605,9 +1568,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* =====================================================
-          FINAL
-      ===================================================== */}
 
       {scene === "final" && (
         <section className="final-screen">
