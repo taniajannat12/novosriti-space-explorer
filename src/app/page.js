@@ -1667,7 +1667,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* VOICE STATUS */}
+    
 
       {!voiceReady && (
         <div className="voice-status">
