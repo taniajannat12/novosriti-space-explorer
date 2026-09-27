@@ -1,6 +1,6 @@
 
 # 🌙 NovoSriti — Abandoned but Not Forgotten
-
+Live Link : https://novosriti-space-explorer.vercel.app/
 **NovoSriti** is an interactive, child-friendly space exploration website inspired by NASA Space Apps Challenge 2026.
 
 Users join **Mira**, a student guide, on a journey from Earth to the Moon to explore **Surveyor 3**, learn about NASA's *“Abandoned but Not Forgotten”* challenge, collect clues, and complete an interactive quiz before returning to Earth.
